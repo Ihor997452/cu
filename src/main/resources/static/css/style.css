@@ -1,0 +1,19 @@
+.link-info {
+    padding: 10px;
+    margin-left: 20px;
+    display: block;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.table-hover {
+    cursor: pointer;
+}
+
+thead {
+    text-transform: capitalize;
+}
+
+thead th {
+    cursor: pointer;
+}

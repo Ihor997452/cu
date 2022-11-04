@@ -1,6 +1,7 @@
 package com.my.service.mobileOperator;
 
 import com.my.model.MobileOperator;
+import com.my.repository.basic.MobileOperatorRepository;
 import com.my.repository.jpa.JpaMobileOperatorRepository;
 import com.my.repository.mongo.MongoMobileOperatorRepository;
 import com.my.service.AbstractService;
@@ -10,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MobileOperatorServiceImpl extends AbstractService<MobileOperator, Integer> implements MobileOperatorService {
+public class MobileOperatorServiceImpl extends AbstractService<MobileOperator, String> implements MobileOperatorService {
     @Autowired
     public MobileOperatorServiceImpl(MongoMobileOperatorRepository mongoMobileOperatorRepository,
                                      JpaMobileOperatorRepository jpaMobileOperatorRepository) {
@@ -20,6 +21,12 @@ public class MobileOperatorServiceImpl extends AbstractService<MobileOperator, I
 
     @Override
     protected Page<MobileOperator> getSearch(String searchValue, Pageable pageable) {
-        return null;
+        return ((MobileOperatorRepository) jpaRepository).findByNameContainingIgnoreCaseOrHotlineContainingIgnoreCaseOrEmailContainingIgnoreCaseOrWebsiteContainingIgnoreCase(
+                searchValue,
+                searchValue,
+                searchValue,
+                searchValue,
+                pageable
+        );
     }
 }

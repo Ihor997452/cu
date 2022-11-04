@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdministratorServiceImpl extends AbstractService<Administrator, Integer> implements AdministratorService {
+public class AdministratorServiceImpl extends AbstractService<Administrator, String> implements AdministratorService {
     public AdministratorServiceImpl(MongoAdministratorRepository mongoUserRepository,
                                     JpaAdministratorRepository jpaUserRepository) {
         this.mongoRepository = mongoUserRepository;

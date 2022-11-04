@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "working_schedule")
@@ -19,7 +20,7 @@ import java.sql.Time;
 public class WorkingSchedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
     @ManyToOne
     private SpecialService specialService;
@@ -27,6 +28,6 @@ public class WorkingSchedule {
     @Enumerated(EnumType.STRING)
     private Days dayOfWeek;
 
-    private Time startTime;
-    private Time endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
 }

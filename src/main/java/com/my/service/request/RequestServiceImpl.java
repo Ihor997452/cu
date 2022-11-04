@@ -1,6 +1,7 @@
 package com.my.service.request;
 
 import com.my.model.Request;
+import com.my.repository.basic.RequestRepository;
 import com.my.repository.jpa.JpaRequestRepository;
 import com.my.repository.mongo.MongoRequestRepository;
 import com.my.service.AbstractService;
@@ -10,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RequestServiceImpl extends AbstractService<Request, Integer> implements RequestService {
+public class RequestServiceImpl extends AbstractService<Request, String> implements RequestService {
     public RequestServiceImpl(JpaRequestRepository jpaRequestRepository,
                               MongoRequestRepository mongoRequestRepository) {
         this.jpaRepository = jpaRequestRepository;
@@ -19,6 +20,9 @@ public class RequestServiceImpl extends AbstractService<Request, Integer> implem
 
     @Override
     protected Page<Request> getSearch(String searchValue, Pageable pageable) {
-        return null;
+        return ((RequestRepository) jpaRepository).findByDescriptionContainingIgnoreCase(
+                searchValue,
+                pageable
+        );
     }
 }

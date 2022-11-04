@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class SpecialService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String name;
     private String phoneNumber;
 }

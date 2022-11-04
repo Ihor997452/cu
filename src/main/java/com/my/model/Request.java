@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
     @Enumerated(EnumType.STRING)
     private RequestType requestType;

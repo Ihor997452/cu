@@ -4,5 +4,5 @@ import com.my.model.MobileOperator;
 import com.my.repository.basic.MobileOperatorRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface MongoMobileOperatorRepository extends MongoRepository<MobileOperator, Integer>, MobileOperatorRepository {
+public interface MongoMobileOperatorRepository extends MongoRepository<MobileOperator, String>, MobileOperatorRepository {
 }

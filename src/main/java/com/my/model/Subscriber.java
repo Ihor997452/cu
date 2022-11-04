@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Subscriber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String phoneNumber;
     private String name;
     private String lastName;

@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WorkingScheduleServiceImpl extends AbstractService<WorkingSchedule, Integer> implements WorkingScheduleService {
+public class WorkingScheduleServiceImpl extends AbstractService<WorkingSchedule, String> implements WorkingScheduleService {
     public WorkingScheduleServiceImpl(JpaWorkingScheduleRepository jpaWorkingScheduleRepository,
                                       MongoWorkingScheduleRepository mongoWorkingScheduleRepository) {
         this.jpaRepository = jpaWorkingScheduleRepository;

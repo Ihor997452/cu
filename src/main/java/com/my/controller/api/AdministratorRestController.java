@@ -10,8 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/administrators")
-public class AdministratorRestController extends AbstractRestController<Administrator, Integer> {
+public class AdministratorRestController extends AbstractRestController<Administrator, String> {
     AdministratorRestController(AdministratorService administratorService) {
         this.service = administratorService;
+    }
+
+    @Override
+    public Administrator getPrototype() {
+        Administrator administrator = new Administrator();
+        administrator.setId("id");
+        administrator.setPassword("pass");
+        administrator.setEmail("email@email.com");
+        return administrator;
     }
 }

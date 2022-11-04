@@ -14,9 +14,9 @@ public abstract class AbstractRestController<T, ID> {
 
     @GetMapping("/search")
     public Page<T> search(@RequestParam String searchValue,
-                                   @RequestParam(required = false) String sortBy,
-                                   @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC)
-                                   Pageable pageable) {
+                          @RequestParam(required = false) String sortBy,
+                          @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC)
+                          Pageable pageable) {
         return service.search(searchValue, sortBy, pageable);
     }
 
@@ -46,4 +46,7 @@ public abstract class AbstractRestController<T, ID> {
     public void clear() {
         service.deleteAll();
     }
+
+    @GetMapping("/getPrototype")
+    abstract public T getPrototype();
 }

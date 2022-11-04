@@ -17,3 +17,16 @@ thead {
 thead th {
     cursor: pointer;
 }
+
+.modal-title {
+    text-transform: capitalize;
+}
+
+.t-up, .search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.page-item {
+    cursor: pointer !important;
+}

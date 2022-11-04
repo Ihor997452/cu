@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class MobileOperator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String name;
     private String hotline;
     private String email;

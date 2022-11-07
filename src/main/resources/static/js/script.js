@@ -47,7 +47,7 @@ function buildPage(page, data) {
 
         button.click(function () {
             let value = $("#search").val();
-            page = insertParam(g_page + "/search", "searchValue", value);
+            page = insertParam(g_page, "searchValue", value);
             getData(page).done(function (result) {
                 buildPage(page, result);
             });
@@ -375,6 +375,7 @@ function getModal(type, data) {
     if (type === "view") {
         $("input").prop( "disabled", true );
         $("select").prop("disabled", true);
+        $("#search").prop("disabled", false);
     }
 
     $('#id').attr("disabled", true);

@@ -12,18 +12,14 @@ import java.util.Optional;
 public abstract class AbstractRestController<T, ID> {
     protected Service<T, ID> service;
 
-    @GetMapping("/search")
-    public Page<T> search(@RequestParam String searchValue,
-                          @RequestParam(required = false) String sortBy,
-                          @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC)
-                          Pageable pageable) {
-        return service.search(searchValue, sortBy, pageable);
-    }
-
     @GetMapping
-    public Page<T> findAll(@RequestParam(required = false) String sortBy,
+    public Page<T> findAll(@RequestParam(required = false) String searchValue,
+                           @RequestParam(required = false) String sortBy,
                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC)
                            Pageable pageable) {
+        if (searchValue != null) {
+            return service.search(searchValue, sortBy, pageable);
+        }
         return service.findAll(pageable, sortBy);
     }
 
